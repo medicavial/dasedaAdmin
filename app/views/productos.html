@@ -1,0 +1,47 @@
+<div ng-init="inicio()">
+	
+    <section class="cuerpo">
+		<div class="box box-primary">
+            <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                <h3 class="box-title">Registrados</h3>
+                <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
+                    <button type="button" ng-click="inicio()" class="btn btn-default btn-sm"><i class="icon-spinner6"></i></button>
+                </div>
+            </div>
+			<div class="box-body">
+            	<div ng-show="cargando">
+					<loading2></loading2>
+				</div>
+            	<div ng-hide="cargando" class="table-responsive">
+	
+	            	<table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-striped table-bordered">
+				        <thead>
+				        <tr>
+				            <th>id</th>
+				            <th>Codigo</th>
+				            <th>Descripcion</th>
+				            <th>Proveedor</th>
+				            <th>Costo</th>
+				            <th>Categoria</th>
+				            <th>En Existencia</th>
+				        </tr>
+				        </thead>
+				        <tbody>
+				        <tr ng-repeat="producto in productos">
+				        	<td>{{ producto.id }}</td>
+				        	<td>{{ producto.codigo }}</td>
+				            <td>{{ producto.titulo }}</td>
+				            <td>{{ producto.provedor }}</td>
+				            <td>{{ producto.costo | currency}}</td>
+				            <td>{{ producto.categoria }}</td>
+				            <td>{{ producto.existencia }}</td>
+				        </tr>
+				        </tbody>
+				    </table>
+
+				</div>
+			</div>
+        </div>
+	</section>
+	
+</div>

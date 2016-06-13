@@ -1,0 +1,43 @@
+<div ng-init="inicio()" class="form-box" id="login-box">
+    
+    <div class="cabecera">
+        <!-- <img src="img/daseda.png" alt=""> -->
+        <h1 class="logoP">
+            MI EMPRESA
+        </h1>
+    </div>
+    <div class="header">Bienvenido</div>
+    <form name="loginForm" ng-submit="login()" novalidate>
+        <div class="body bg-gray">
+            <div class="form-group">
+                <input type="text" ng-model="datos.username" name="user" class="form-control" placeholder="Nombre de Usuario" required/>
+                <div class="error-messages" ng-if="interacted(loginForm.user)" ng-messages="loginForm.user.$error">
+			        <div ng-message="required">Usuario requerido</div>
+			    </div>
+            </div>
+            <div class="form-group">
+                <input type="password" ng-model="datos.password" name="password" class="form-control" placeholder="Contraseña" required/>
+                <div class="error-messages" ng-if="interacted(loginForm.password)" ng-messages="loginForm.password.$error">
+			        <div ng-message="required">Contraseña requerida</div>
+			    </div>
+            </div>          
+        </div>
+        <div class="footer">                                                               
+            <button type="submit" id="boton" data-loading-text="Verificando..." class="btn btn-default btn-block">Iniciar Sesion</button>  
+        </div>
+    </form>
+    <br>
+    <div ng-show="mensaje" class="alert alert-warning alert-dismissable text-center alertas">
+        <i class="fa fa-warning"></i>
+        {{mensaje}}
+    </div>
+    <br>
+    <div class="pie text-center">
+        <span>Sistema elaborado por Sergio Alcalá derechos reservados</span>
+        <br>
+        <br>
+        <a href="https://www.facebook.com/checo.ipn" class="btn bg-light-blue btn-circle"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com/checoipn" class="btn bg-aqua btn-circle"><i class="fa fa-twitter"></i></a>
+    </div>
+
+</div>

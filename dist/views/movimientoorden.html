@@ -1,0 +1,52 @@
+<md-dialog aria-label="Nuevo Estado" ng-init="inicio()" flex-sm="65" flex-gt-md="40" flex="100">
+
+  <md-toolbar class="md-warn">
+    <div class="md-toolbar-tools">
+      <h2>Completa orden</h2>
+      <span flex></span>
+      <md-button  class="md-icon-button" ng-click="cancel()">
+        <!-- <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Cerrar Ventana"></md-icon> -->
+        <ng-md-icon icon="close" style="fill:white" aria-label="Cerrar Ventana"></ng-md-icon> 
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <form name="movimientoForm" novalidate ng-submit="guardar()">
+
+  <md-dialog-content layout-padding>
+      
+      <md-content layout="column">
+
+          <md-list>
+            <md-list-item>
+                <p> Item </p>
+                <p> Cantidad </p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item  ng-repeat="item in datos.items">
+                <p> {{ item.ITE_nombre }} </p>
+                <p> {{ item.OIT_cantidadPedida - item.OIT_cantidadSurtida }} </p>
+            </md-list-item>
+          </md-list>
+        
+
+          <div layout="row" layout-sm="column" layout-align="space-around" ng-show="guardando">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </div>
+
+      </md-content>
+    
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+
+    <span flex></span>
+    <md-button type="button" ng-click="cancel()">
+        Salir
+    </md-button>
+    <md-button ng-disabled="guardando" type="submit">
+        Ingresar
+    </md-button>
+  </div>
+
+  </form>
+</md-dialog>

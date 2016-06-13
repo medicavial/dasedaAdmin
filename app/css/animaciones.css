@@ -1,0 +1,263 @@
+
+/*.alertas{
+    position: absolute;
+}*/
+
+.alertas.ng-hide-add {
+    
+    animation: fadeOutDown 0.5s;
+
+}
+
+.alertas.ng-hide-remove{
+    
+    animation: fadeInUp 0.5s;
+
+}
+
+.alertas2.ng-hide-add {
+
+    animation: fadeOutDown 0.5s;
+
+}
+
+.alertas2.ng-hide-remove{
+    
+    animation: fadeInDown 0.5s;
+
+}
+
+.cargando.ng-hide-add {
+    
+    animation: fadeOut 0.5s;
+}
+
+
+.entrada.ng-hide-add {
+    
+    animation: fadeOutUp 0.5s;
+
+}
+
+.entrada.ng-hide-remove{
+    
+    animation: fadeInDown 1s;
+
+}
+
+.entrada2.ng-hide-add {
+    
+    animation: fadeOutDown 0.5s;
+
+}
+
+.entrada2.ng-hide-remove{
+    
+    animation: fadeInUp 1s;
+
+}
+
+
+
+.info.ng-hide-remove{
+    
+    transform-origin: 50% 50%; 
+    animation: fadeInUp 0.5s ease-out;
+
+}
+
+.menu-footer.ng-enter {
+
+    animation: fadeInRight 0.5s;
+ 
+}
+.menu-footer.ng-leave {
+
+    animation: fadeOutLeft 0.5s;
+
+}
+
+
+.muestraderecha.ng-hide-add {
+
+    animation: fadeIn 0.5s;
+
+}
+
+.muestraderecha.ng-hide-remove{
+    
+    animation: fadeOut 0.5s;
+
+}
+
+.muestraderecha2.ng-hide-remove {
+
+    animation: fadeIn 0.5s;
+
+}
+
+.muestraderecha2.ng-hide-add{
+    
+    animation: fadeOut 0.5s;
+
+}
+
+
+.notificaciones.ng-hide-remove {
+
+    animation: fadeInRight 0.5s;
+
+}
+
+.notificaciones.ng-hide-add{
+    
+    animation: fadeInRight 0.5s;
+
+}
+
+.load.ng-hide-add {
+
+    animation: zoomIn 0.5s;
+
+}
+
+.load.ng-hide-remove{
+    
+    animation: zoomOut 0.5s;
+    
+}
+
+.paginas.ng-enter, .paginas.ng-leave {
+	
+	width: 100%;
+    position:absolute;
+}
+
+.paginas.ng-enter {
+
+    animation: fadeInUp 1s;
+ 
+}
+.paginas.ng-leave {
+
+    animation: fadeOutDown 1s;
+
+}
+
+.error-messages.ng-active {
+    background:maroon;
+    color:white;
+    padding:5px;
+    border-radius:5px;
+    margin-top:15px;
+    position:relative;
+    animation: fadeInUp 0.5s;
+}
+
+.error-messages.ng-inactive {
+    animation: fadeOutDown 0.5s;
+}
+
+.error-messages.ng-active:after {
+    position:absolute;
+    top:-10px;
+    content:"";
+    left:20px;
+    border-style:solid;
+    border-color:transparent transparent maroon;
+    border-width:5px;
+}
+
+
+/* slideLeft */
+.slideLeft {
+    transition-timing-function: ease;
+    transition-duration: 1s;
+}
+ 
+.slideLeft.ng-enter {
+    transition-property: none;
+    transform: translate3d(100%,0,0);
+}
+ 
+.slideLeft.ng-enter.ng-enter-active {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+ 
+.slideLeft.ng-leave {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+ 
+.slideLeft.ng-leave.ng-leave-active {
+    transition-property: all;
+    transform: translate3d(-100%,0,0);
+}
+
+
+.slide-animate.ng-enter, .slide-animate.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:block;
+  padding:10px;
+}
+
+.slide-animate.ng-enter {
+  top:-50px;
+}
+.slide-animate.ng-enter.ng-enter-active {
+  top:0;
+}
+
+.slide-animate.ng-leave {
+  top:0;
+}
+.slide-animate.ng-leave.ng-leave-active {
+  top:50px;
+}
+
+/*.page {
+    width: 100%;
+    position:absolute;
+}*/
+
+
+/* PAGES (specific colors for each page)
+============================================================================= */
+/*.page-home      { color:#00907c; }
+.page-about     { background:white; color: black; }
+.page-contact   { background:#ffa6bb; color:#9e0000; }*/
+
+
+
+.ng-enter       { z-index: 10; }
+.ng-leave       { z-index: 9; }
+
+.ng-enter,.ng-leave {
+    
+    width: 100%;
+    position:absolute;
+}
+
+
+/* animaciones individuales ------------------------ */
+
+/* home -------------------------- */
+.page-home.ng-enter         { animation:zoomIn 1s both ease-in;}
+.page-home.ng-leave         { animation:fadeOutDown 1s both ease-in;}
+
+/* login ------------------------ */
+.page-login.ng-enter        { animation:zoomIn 1s both ease-in;}
+.page-login.ng-leave        { animation:zoomOut 1s both ease-in;}
+
+/* item tas las paginas ---------------------- */
+.page-item.ng-leave      { animation:slideOutDown 0.5s both ease-in; }
+.page-item.ng-enter      { animation:slideInUp 0.5s both ease-in; }
+

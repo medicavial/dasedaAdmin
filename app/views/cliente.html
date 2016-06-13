@@ -1,0 +1,60 @@
+<div ng-init="inicio()">
+	
+    <section class="cuerpo">
+		<div class="box box-primary">
+            <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                <h3 class="box-title">Información</h3>
+            </div>
+            <div class="box-body">
+            <form name="clienteForm" ng-submit="guardar()" novalidate>
+            	<div class="row">
+	            	<div class="col-md-6">
+	            		<div class="input-group">
+						  	<span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+						  	<input type="text" class="form-control" name="nombre" ng-model="datos.nombre" ng-blur="backup()" placeholder="Nombre o Razón social" mayusculas required>
+						</div>
+					  	<div class="error-messages" ng-if="interacted(clienteForm.nombre)" ng-messages="clienteForm.nombre.$error">
+					        <div ng-message="required">Nombre o Razón social necesarios</div>
+					    </div>
+	            	</div>
+	            	<div class="col-md-6">
+	            		<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+							<input type="text" class="form-control" ng-model="datos.telefono" ng-blur="backup()" placeholder="Telefono">
+						</div>
+	            	</div>
+	            </div>
+				<br>
+				<div class="row">
+	            	<div class="col-md-6">
+	            		<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input type="text" class="form-control" ng-model="datos.rfc" name="rfc" ng-blur="backup()" placeholder="RFC" mayusculas >
+						</div>
+	            	</div>
+	            	<div class="col-md-6">
+	            		<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+							<input type="email" name="mail" class="form-control" ng-model="datos.correo" ng-blur="backup()" placeholder="Correo">
+						</div>
+						<div class="error-messages" ng-if="interacted(clienteForm.mail)" ng-messages="clienteForm.mail.$error">
+					        <div ng-message="email">El e-mail no es valido</div>
+					    </div>
+	            	</div>
+	            </div>
+				<br>
+	            <div class="row">
+	            	<div class="col-md-6">
+	            		<textarea class="form-control" ng-model="datos.direccion" placeholder="Dirección" ng-blur="backup()" rows="3" mayusculas></textarea>
+	            	</div>  
+	            	<div class="col-md-6">
+	            		<textarea class="form-control" ng-model="datos.detalles" placeholder="Descripción Adicional" ng-blur="backup()" rows="3" mayusculas></textarea>
+	            	</div>   
+	            </div>
+    			<div ng-show="mensaje" ng-class="tipoalerta" class="alert text-center alertas">{{mensaje}}</div>
+            </div>
+            </form>
+        </div>
+	</section>
+	
+</div>

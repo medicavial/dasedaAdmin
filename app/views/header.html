@@ -1,0 +1,204 @@
+<header>
+    <nav class="navbar" role="navigation">
+        <!-- Sidebar toggle button-->
+        <div id="openmenu" class="visible-xs">
+            <a href="" ng-click="cambia()"><i class="icon-paragraph-justify"></i></a>
+        </div>
+        <div class="navbar-left hidden-xs">
+          <h1 class="logo">
+            MI EMPRESA
+          </h1>
+        </div>
+        <div class="navbar-right">
+            <h1 class="pull-left logo visible-xs">
+                MI EMPRESA
+            </h1>
+            <ul class="nav navbar-nav">
+                <li class="conection-menu hidden-xs">
+                    <a href="" popover="{{descripcion}}" popover-placement="bottom" popover-trigger="mouseenter">
+                        <i ng-class="{ 'text-success':online,'text-danger':!online }" class="icon icon-connection"></i>
+                        <span ng-hide="online" class="text-danger">!</span>
+                    </a>
+                </li>
+                <!-- full screen  -->
+                <li class="tasks-menu hidden-xs">
+                    <a href="" ng-click="pantalla()">
+                        <i class="icon glyphicon " ng-class="{'glyphicon-resize-small' :isFullscreen, 'glyphicon-resize-full':!isFullscreen}"></i>
+                    </a>
+                </li>
+                <!-- Tasks: style can be found in dropdown.less -->
+                <li class="tasks-menu hidden-xs">
+                    <a href="" ng-click="panel()" class="dropdown-toggle">
+                        <i class="icon  icon-grid"></i>
+                    </a>
+                </li>
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu hidden-xs">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope"></i>
+                        <span class="label label-success">4</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">Tienes 4 nuevos mensajes</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li><!-- start message -->
+                                    <a href="">
+                                        <div class="pull-left">
+                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li><!-- end message -->
+                                <li>
+                                    <a href="">
+                                        <div class="pull-left">
+                                            <img src="img/avatar2.png" class="img-circle" alt="user image"/>
+                                        </div>
+                                        <h4>
+                                            AdminLTE Design Team
+                                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <div class="pull-left">
+                                            <img src="img/avatar.png" class="img-circle" alt="user image"/>
+                                        </div>
+                                        <h4>
+                                            Developers
+                                            <small><i class="fa fa-clock-o"></i> Today</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <div class="pull-left">
+                                            <img src="img/avatar2.png" class="img-circle" alt="user image"/>
+                                        </div>
+                                        <h4>
+                                            Sales Department
+                                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <div class="pull-left">
+                                            <img src="img/avatar.png" class="img-circle" alt="user image"/>
+                                        </div>
+                                        <h4>
+                                            Reviewers
+                                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="">See All Messages</a></li>
+                    </ul>
+                </li>
+                <!-- Notifications: style can be found in dropdown.less -->
+                <li class="dropdown notifications-menu hidden-xs">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-warning"></i>
+                        <span class="label label-warning">10</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">You have 10 notifications</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li>
+                                    <a href="">
+                                        <i class="ion ion-ios7-people info"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-users warning"></i> 5 new members joined
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="">
+                                        <i class="ion ion-ios7-cart success"></i> 25 sales made
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="ion ion-ios7-person danger"></i> You changed your username
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="">View all</a></li>
+                    </ul>
+                </li>
+                
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span>Sergio Alcalá <i class="caret"></i></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header bg-light-blue">
+                            <img src="img/avatar5.png" class="img-circle" alt="User Image" />
+                            <p>
+                                Sergio Alcalá - Web Developer
+                                <small>Miembro desde Nov. 2012</small>
+                            </p>
+                        </li>
+                        <!-- Menu Body -->
+                        <li class="user-body">
+                            <div class="col-xs-4 text-center">
+                                <a href="">Facturas</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="">Ventas</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="">Provedores</a>
+                            </div>
+                        </li>
+                        <li class="conection-menu visible-xs">
+                            <a href="" class="text-center">
+                                <i ng-class="{ 'text-success':online,'text-danger':!online }" class="icon icon-connection"></i>
+                                <span ng-hide="online" class="text-danger">!</span>
+                                <span> {{descripcion}} </span>
+                            </a>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="" class="btn btn-default btn-flat">Perfil</a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="" ng-click="logout()" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+</header>
+        

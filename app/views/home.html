@@ -1,0 +1,114 @@
+<div ng-init="inicio()">
+
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>
+                        {{productos}}
+                    </h3>
+                    <p>
+                        Productos Registrados
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="icon-barcode"></i>
+                </div>
+                <a href="#" class="small-box-footer">
+                    Mas Información <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>
+                        {{provedores}}
+                    </h3>
+                    <p>
+                        Provedores Registrados
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="icon-truck"></i>
+                </div>
+                <a href="#" class="small-box-footer">
+                    Mas Información <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>
+                        {{clientes}}
+                    </h3>
+                    <p>
+                        Clientes Registrados
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="icon-user"></i>
+                </div>
+                <a href="#" class="small-box-footer">
+                    Mas Información <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div><!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>
+                        30
+                    </h3>
+                    <p>
+                        Ventas Registradas en 2014
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="icon-creditcard"></i>
+                </div>
+                <a href="#" class="small-box-footer">
+                    Mas Información <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div><!-- ./col -->
+    </div>
+    <div class="row text-center">
+        <div class="col-md-3">
+            <!-- Primary tile -->
+            <div class="box box-solid bg-light-blue">
+                <div class="box-header">
+                    <h3 class="box-title">Temperatura</h3>
+                </div>
+                <div class="box-body">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" ng-src="http://openweathermap.org/img/w/{{icon}}.png" alt="clima">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h2 class="media-heading">{{actual  | number:0}} ºC</h2>
+                        {{detalle | uppercase}}
+                      </div>
+                      <!-- <div class="row">
+                          <div class="col-md-6 text-center">
+                              <h3>Minima</h3>
+                              <h4>{{minima | number:0}}</h4>
+                          </div>
+                          <div class="col-md-6 text-center">
+                              <h3>Maxima</h3>
+                              <h4>{{maxima | number:0}}</h4>
+                          </div>
+                      </div> -->
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+</div>

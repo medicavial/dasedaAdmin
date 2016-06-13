@@ -1,0 +1,59 @@
+<div class="box box-primary">
+            <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                <h3 class="box-title">Información</h3>
+            </div>
+            <div class="box-body">
+            <form name="userForm" ng-submit="guardar()" novalidate>
+            	<div class="row">
+	            	<div class="col-md-6">
+	            		<div class="input-group" ng-class="{ 'has-error' : userForm.nombre.$invalid && !userForm.nombre.$pristine }">
+						  <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+						  <input type="text" class="form-control" name="nombre" ng-model="datos.nombre" placeholder="Nombre" mayusculas required>
+						</div>
+						<p ng-show="userForm.nombre.$invalid && !userForm.nombre.$pristine" class="help-block">El nombre es requerido.</p>
+	            	</div>
+	            	<div class="col-md-6">
+	            		<div class="input-group">
+						  <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+						  <input type="text" class="form-control" ng-model="datos.telefono" data-inputmask='"mask": "(99) 99-99-99-99"' data-mask placeholder="Telefono">
+						</div>
+	            	</div>
+	            </div>
+				<br>
+				<div class="row">
+	            	<div class="col-md-6">
+	            		<div class="input-group">
+						  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						  <input type="text" class="form-control" ng-model="datos.contacto" placeholder="Contacto" mayusculas>
+						</div>
+	            	</div>
+	            	<div class="col-md-6">
+	            		<div class="input-group" ng-class="{ 'has-error' : userForm.mail.$invalid && !userForm.mail.$pristine }">
+						  <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+						  <input type="email" name="mail" class="form-control" ng-model="datos.mail" placeholder="Correo">
+						</div>
+						<p ng-show="userForm.mail.$invalid && !userForm.mail.$pristine" class="help-block">Correo invalido.</p>
+	            	</div>
+	            </div>
+				<br>
+	            <div class="row">
+	            	<div class="col-md-6">
+	            		<textarea class="form-control" ng-model="datos.direccion" placeholder="Dirección" rows="3" mayusculas></textarea>
+	            	</div>
+	            	<div class="col-md-6">
+	            		<textarea class="form-control" ng-model="datos.descripcion" placeholder="Descripción" rows="3" mayusculas></textarea>
+	            	</div>
+	            </div>
+	            <hr>
+    			<div ng-show="mensaje != '' " ng-class="tipoalerta" class="alert animate-show text-center">{{mensaje}}</div>
+	            <div class="row">
+	            	<div class="col-md-3">
+	            		<button type="reset" ng-click="mensaje = ''" class="btn btn-default btn-flat"><i class="fa fa-file-o"></i> Nuevo</button>
+	            		<button type="submit" ng-click="guardar()" ng-disabled="userForm.$invalid" class="btn btn-primary btn-flat"><i class="fa fa-save"></i> Guardar</button>
+	            	</div>
+	            	<div class="col-md-3">
+	            	</div>
+	            </div>
+            </div>
+            </form>
+        </div>

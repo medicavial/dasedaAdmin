@@ -1,0 +1,54 @@
+<!-- barra de footer para las acciones de guardar cualquier item incluye funciones globales -->
+<div class="box-body">
+	<div class="notificaciones" ng-hide="muestraBotones()">
+		<a class="btn btn-app"  mn-touch secure-tap="verifica(1)">
+		  <i class="icon icon-arrow-left3"></i> Regresar
+		</a>
+		<a class="btn btn-app" mn-touch secure-tap="guardar()">
+		  <i class="icon icon-disk"></i> Guardar
+		</a>
+		<a class="btn btn-app"  mn-touch secure-tap="verifica(2)">
+		  <i class="icon icon-undo"></i> Limpiar
+		</a>
+	</div>
+	<div class="notificaciones" ng-show="notificacion">
+		¿Seguro?
+		<a class="btn btn-app"  mn-touch secure-tap="cancela()">
+		  <i class="icon icon-close"></i> No
+		</a>
+		<a class="btn btn-app"  mn-touch secure-tap="ejecutaAccion()">
+		  <i class="icon icon-checkmark"></i> Si
+		</a>
+	</div>
+	<div class="notificaciones" ng-show="respaldo">
+		Tienes información que no has guardado ¿Deseas recuperarlo?
+		<a class="btn btn-app"  mn-touch secure-tap="eliminaBackup()">
+		  <i class="icon icon-close"></i> No
+		</a>
+		<a class="btn btn-app"  mn-touch secure-tap="restauraBackup()">
+		  <i class="icon icon-checkmark"></i> Si
+		</a>
+	</div>
+	<div class="notificaciones" ng-show="guardando">
+		Guardando
+		<loading4></loading4>
+	</div>
+	<div class="notificaciones" ng-show="terminado">
+		{{mensaje}}
+		<a class="btn btn-app"  mn-touch secure-tap="verifica(1)">
+		  <i class="icon icon-arrow-left3"></i> Regresar
+		</a>
+		<a class="btn btn-app"  mn-touch secure-tap="verifica(2)">
+		  <i class="icon icon-libreoffice"></i> Nuevo
+		</a>
+	</div>
+	<div class="notificaciones" ng-show="fallo">
+		{{mensaje}}
+		<a class="btn btn-app" mn-touch secure-tap="guardar()">
+		  <i class="icon icon-disk"></i> Guardar
+		</a>
+		<a class="btn btn-app"  mn-touch secure-tap="verifica(1)">
+		  <i class="icon icon-arrow-left3"></i> Regresar
+		</a>
+	</div>
+</div>

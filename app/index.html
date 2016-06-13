@@ -1,0 +1,153 @@
+<!-- 
+  Plataform :SIGMA Ver. 0.0.10
+  Author: Sergio Iván Alcalá Consuelos
+  Last update: 19/12/2014
+  version developer
+ -->
+
+<!DOCTYPE html>
+<!-- <html lang="es" ng-app="app"> -->
+<html lang="es" >
+<head>
+  <!-- <base href="/"> pendiente-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>SIGMA | Solución en sistemas para tu empresa</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css" />
+  <link rel="stylesheet" href="lib/animate.css" />
+  <link rel="stylesheet" href="lib/datatables.bootstrap.min.css"/>
+  <link rel="stylesheet" href="lib/dataTables.colReorder.min.css"/>
+  <link rel="stylesheet" href="lib/dataTables.colVis.min.css"/>
+  <link rel="stylesheet" href="lib/dataTables.tableTools.min.css"/>
+  <link rel="stylesheet" href="lib/dataTables.responsive.min.css"/>
+  <link rel="stylesheet" href="css/AdminLTE.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animaciones.css" />
+  <link rel="stylesheet" href="css/loading.css" />
+  <link rel="stylesheet" href="css/icons.css" />
+  <link rel="stylesheet" href="css/angucomplete-alt.css">
+  <link rel="stylesheet" href="css/textAngular.css">
+  <base href="/" />
+  <!--[if lt IE 9]>
+      <script>
+          location.href="http://www.medicavial.net/infoweb/navegadorviejo.html";
+      </script>
+  <![endif]-->
+</head>
+<body>
+
+    <section id="splash" class="splash animated"></section>
+
+    <div id="page-wrapper" ng-class="{'tablet':cierra,'oculto':oculto}" ng-cloak>
+
+      <!-- barra lateral -->
+      <div id="sidebar-wrapper" ng-class="{'show':offcanvas,'tablet':cierra,'login':login}">
+          <div ng-include="menu"></div>
+      </div>
+      <!-- termina barra lateral -->
+
+      <!-- barra de cabecera -->
+      <div class="row header" ng-class="{'tablet':cierra,'login':login}">
+        <div ng-include="header"></div>
+      </div>      
+      <!-- termina barra de cabecera -->
+
+
+      <!-- Contenido -->
+      <div id="content-wrapper">
+          <section class="content-header entrada" ng-show="titulo">
+              <h1>
+                {{titulo}}
+              </h1>
+          </section>
+          <div class="content">
+            <div ng-view class="page {{ pageClass }}"></div>  
+          </div>
+          <footer class="content-footer text-center entrada2" ng-class="{'tablet':cierra,'oculto':oculto}" ng-show="titulo">
+                  <div class="menu-footer" ng-include="footer"></div> 
+          </footer>
+      </div>
+      <!-- termina contenido -->
+
+    </div><!-- End Page Wrapper -->
+    
+    <div class="areatouch" mn-touch swipe-right="cambia()"></div>
+
+    <div class="cn-overlay" ng-class="{'on-overlay':offcanvas}" ng-click="cambia()"></div>
+
+    <section class="access" ng-class="{'access-open': openaccess}" ng-style="{'z-index': 1000, display: 'block'}">
+      <div ng-include="lounch"></div>
+    </section>
+    
+    <script src="lib/prefixfree.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery.dataTables.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/dataTables.colReorder.min.js"></script>
+    <script src="lib/dataTables.colVis.min.js"></script>
+    <script src="lib/dataTables.tableTools.min.js"></script>
+    <script src="lib/dataTables.responsive.min.js"></script>
+  
+    <!-- angular moudles -->
+
+    <script src="modules/angucomplete-alt.min.js"></script>
+    <script src="modules/angular-animate.min.js"></script>
+    <script src="modules/angular-cookies.min.js"></script>
+    <script src="modules/angular-datatables.min.js"></script>
+    <script src="modules/angular-file-upload-all.min.js"></script>
+    <script src="modules/angular-fullscreen.min.js"></script>
+    <script src="modules/angular-messages.min.js"></script>
+    <script src="modules/angular-resource.min.js"></script>
+    <script src="modules/angular-route.min.js"></script>
+    <script src="modules/angular-webstorage.min.js"></script>
+    <script src="modules/massautocomplete.min.js"></script>
+    <script src="modules/mn-touch.min.js"></script>
+    <script src="modules/roundProgress.min.js"></script>
+    <script src="modules/ui-bootstrap-tpls.min.js"></script>
+
+    <script src='textangular/textAngular-setup.min.js'></script>
+    
+    <!-- angular app -->
+    <script src="app/app.js"></script>
+    <!-- servicios  -->
+    <script src="app/services/loginService.js"></script>
+    <script src="app/services/loadingService.js"></script>
+    <script src="app/services/findService.js"></script>
+    <script src="app/services/resourceService.js"></script>
+    <script src="app/services/provedoresService.js"></script>
+    <script src="app/services/categoriasService.js"></script>
+    <script src="app/services/productosService.js"></script>
+    <script src="app/services/clientesService.js"></script>
+    <script src="app/services/marcasService.js"></script>
+
+    <script src="app/directives/cargando.js"></script>
+    <script src="app/directives/rutas.js"></script>
+    <script src="app/controllers/homeCtrl.js"></script>
+    <script src="app/controllers/productoCtrl.js"></script>
+    <script src="app/controllers/loginCtrl.js"></script>
+    <!-- Provedores controllers -->
+    <script src="app/controllers/provedorCtrl.js"></script>
+    <script src="app/controllers/provedorEditCtrl.js"></script>
+    <script src="app/controllers/provedoresCtrl.js"></script>
+    <!-- Clientes controllers -->
+    <script src="app/controllers/clienteCtrl.js"></script>
+    <script src="app/controllers/clienteEditCtrl.js"></script>
+    <script src="app/controllers/clientesCtrl.js"></script>
+    <!-- Categorias Controllers -->
+    <script src="app/controllers/categoriaCtrl.js"></script>
+    <script src="app/controllers/categoriaEditCtrl.js"></script>
+    <script src="app/controllers/categoriasCtrl.js"></script>
+
+    <!-- Productos Controllers -->
+    <script src="app/controllers/productoCtrl.js"></script>
+    <script src="app/controllers/productoEditCtrl.js"></script>
+    <script src="app/controllers/productosCtrl.js"></script>
+
+    <script src="app/controllers/productoCtrl.js"></script>
+    <script src="app/controllers/productosCtrl.js"></script>
+    <script src="app/controllers/clienteCtrl.js"></script>
+    <script src="app/controllers/clientesCtrl.js"></script>
+
+</body>
+</html>

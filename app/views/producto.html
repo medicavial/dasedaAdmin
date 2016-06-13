@@ -1,0 +1,180 @@
+<div ng-show="dropSupported" class="drop-box" drag-over-class="arrastra"  multiple="true" ng-file-drop="altaImagenes($files);" ng-file-drop-available="dropSupported=true">Arrastra documentos en esta area</div>
+<div ng-init="inicio()">
+	<section class="cuerpo">
+		<div class="box box-primary">
+            <div class="box-header" data-toggle="tooltip" title="" data-original-title="Header tooltip">
+                <h3 class="box-title">Información</h3>
+            </div>
+            <div class="box-body">
+            <form name="prodForm" ng-submit="guardar()" novalidate>
+            	<div class="row">
+	            	<div class="col-md-3">
+	            		<div class="input-group">
+						  <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+						  <input type="text" ng-blur="backup()" class="form-control" name="codigo" ng-model="datos.codigo" placeholder="Codigo" mayusculas required>
+						</div>
+						<div class="error-messages" ng-if="interacted(prodForm.codigo)" ng-messages="prodForm.codigo.$error">
+					        <div ng-message="required">Codigo de producto requerido</div>
+					    </div>
+	            	</div>
+	            	<div class="col-md-3">
+	            		<div class="input-group">
+						  <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+						  <input type="text" ng-blur="backup()" class="form-control" ng-model="datos.codigobarras" placeholder="Codigo de barras">
+						</div>
+	            	</div>
+	            	<div class="col-md-6">
+	            		<div class="input-group">
+						  <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+						  <input type="text" ng-blur="backup()" class="form-control" name="titulo" ng-model="datos.titulo" placeholder="Titulo de Producto" mayusculas required>
+						</div>
+						<div class="error-messages" ng-if="interacted(prodForm.titulo)" ng-messages="prodForm.titulo.$error">
+					        <div ng-message="required">Titulo de producto requerido</div>
+					    </div>
+	            	</div>
+	            </div>
+				<br>
+				<div class="row">
+					<div class="col-md-4">
+	            		
+						<select  class="form-control" name="provedor"  ng-model="datos.provedor" ng-options="provedor.id as provedor.nombre for provedor in provedores" required>
+							<option value="">Selecciona Proveedor</option>
+						</select>
+						
+
+						<div class="error-messages" ng-if="interacted(prodForm.provedor)" ng-messages="prodForm.provedor.$error">
+					        <div ng-message="required">Provedor requerido</div>
+					    </div>
+	            	</div>
+	            	<div class="col-md-4">
+	            		
+					  	<select  class="form-control" name="categoria"  ng-model="datos.categoria" ng-options="categoria.id as categoria.nombre for categoria in categorias" required>
+							<option value="">Selecciona Categoria</option>
+						</select>
+
+						<div class="error-messages" ng-if="interacted(prodForm.categoria)" ng-messages="prodForm.categoria.$error">
+					        <div ng-message="required">Categoria requerida</div>
+					    </div>
+	            	</div>
+	            	<div class="col-md-4">
+						<div>
+			              <angucomplete-alt id="marca"
+							placeholder="Marca"
+							pause="100"
+							selected-object="seleccionaMarca"
+							focus-out="backup()"
+							local-data="marcas"
+							search-fields="nombre"
+							title-field="nombre"
+							minlength="1"
+							name="marca"
+							field-required="true"
+							text-searching="Buscando Marcas"
+							text-no-results="No se encontraron marcas"
+							initial-value="{{datos.marca}}"
+          					input-class="form-control"/>
+						</div>
+
+						<!-- focus-out="guardaMarca()" -->
+						
+						<div class="error-messages" ng-if="interacted(prodForm.marca)" ng-messages="prodForm.marca.$error">
+				        	<div ng-message="required">Marca requerida</div>
+				    	</div>
+	            	</div>
+				</div>
+				<br>
+				<div class="row">
+	            	
+	            	<div class="col-md-4">
+	            		<div class="input-group">
+						  <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+						  <input type="text" ng-blur="backup()" name="costo" class="form-control" ng-model="datos.costo" placeholder="Precio Costo" decimales required>
+						</div>
+						<div class="error-messages" ng-if="interacted(prodForm.costo)" ng-messages="prodForm.costo.$error">
+					        <div ng-message="required">Costo requerido</div>
+					    </div>
+	            	</div>
+	            	<div class="col-md-4">
+	            		<div class="input-group">
+						  <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+						  <input type="text" ng-blur="backup()" name="venta" class="form-control" ng-model="datos.venta" placeholder="Precio Venta" decimales required>
+						</div>
+						<div class="error-messages" ng-if="interacted(prodForm.venta)" ng-messages="prodForm.venta.$error">
+					        <div ng-message="required">Precio venta requerido</div>
+					    </div>
+	            	</div>
+	            	<div class="col-md-4">
+	            		<div class="input-group">
+						  <span class="input-group-addon"><i class="fa fa-sitemap"></i></span>
+						  <input type="text" ng-blur="backup()" name="cantidad" class="form-control" ng-model="datos.cantidad" placeholder="En Existencia" numeros required ng-disabled="edicion">
+						</div>
+						<div class="error-messages" ng-if="interacted(prodForm.cantidad)" ng-messages="prodForm.cantidad.$error">
+					        <div ng-message="required">Cantidad requerida</div>
+					    </div>
+	            	</div>
+	            </div>
+				<br>
+	            <div class="row">
+	            	<div class="col-md-12">
+	            		<div class="input-group">
+						  <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+						  <input type="text" ng-blur="backup()" class="form-control" name="descripcionexpress" ng-model="datos.descripcion1" placeholder="Descripción Corta" mayusculas required>
+						</div>
+						<div class="error-messages" ng-if="interacted(prodForm.descripcionexpress)" ng-messages="prodForm.descripcionexpress.$error">
+					        <div ng-message="required">Descripción requerida</div>
+					    </div>
+	            	</div>
+	            	<!-- <div class="col-md-6">
+	            		<textarea class="form-control" ng-blur="backup()" ng-model="datos.descripcion2" placeholder="Descripción" rows="3" mayusculas></textarea>
+	            	</div> -->
+	            </div>
+	            <div class="row">
+	            	<div class="col-md-12">
+	            		<label>Descripción detalla del producto</label>
+	            		<div text-angular class="perspectiva" ng-model="datos.descripcion2"></div>
+						<div class="error-messages" ng-if="interacted(prodForm.descripcion2)" ng-messages="prodForm.descripcion2.$error">
+					        <div ng-message="required">Descripción larga requerida</div>
+					    </div>
+	            	</div>
+	            </div>
+	            <div class="row">
+					<div class="col-md-6 col-sm-6">
+							<input type="file" ng-file-select="altaImagenes($files)" >
+							Tambien arrastra tus documentos
+					</div>
+					<div class="col-md-6 col-sm-6">
+						
+						<div class="text-center animate-show" ng-show="cargando">
+							<h2>Subiendo {{ actual }} de {{ total }}</h2>
+							<div class="progress-wrapper">
+					            <div class="progress"  ng-style="{'font-size': ((radius + stroke)/(isSemi ? 3.5 : 3))+'px'}">{{ ((uploadCurrent/100)*100) | number:0 }}%</div>
+					            <div
+					                round-progress
+					                max="100"
+					                current="uploadCurrent"
+					                color="{{ currentColor }}"
+					                bgcolor="{{ bgColor }}"
+					                radius="{{ radius }}"
+					                semi="isSemi"
+					                stroke="{{ stroke }}"
+					                animation="{{ currentAnimation }}"></div>
+					        </div>
+								
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4" ng-repeat="file in imagenes">
+								<button type="button" class="close" aria-label="Close" ng-click="eliminaImagen($index)"><span aria-hidden="true">&times;</span></button>
+								<img ng-src="{{ruta}}/{{file.image}}" alt="producto" class="img-thumbnail">
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<br>
+				<br>
+        	</div>
+        	</form>
+        </div>
+	</section>
+</div>

@@ -1,0 +1,853 @@
+/* CSS de la plataforma */
+
+/*
+	font-family: 'News Cycle', sans-serif;
+	font-family: 'Josefin Slab', serif;
+	font-family: 'Raleway', sans-serif;
+	font-family: 'Pontano Sans', sans-serif;
+*/
+
+/*
+	listas de z-index para su posicion en el navegador
+	areatouch z-index:10;
+	row-header z-inde:11
+	content-footer z-index:11;
+	splash z-index:1000;
+	access z-index:500;
+*/
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/montserrat/montserrat-regular-webfont.eot');
+	src: url('../fonts/montserrat/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	   url('../fonts/montserrat/montserrat-regular-webfont.woff') format('woff'),
+	   url('../fonts/montserrat/montserrat-regular-webfont.ttf') format('truetype'),
+	   url('../fonts/montserrat/montserrat-regular-webfont.svg#montserratregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src:url('../fonts/SourceSansPro-Light/SourceSansPro-Light.eot');
+  src:url('../fonts/SourceSansPro-Light/SourceSansPro-Light.eot') format('embedded-opentype'),
+    url('../fonts/SourceSansPro-Light/SourceSansPro-Light.woff') format('woff'),
+    url('../fonts/SourceSansPro-Light/SourceSansPro-Light.ttf') format('truetype'),
+    url('../fonts/SourceSansPro-Light/SourceSansPro-Light.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+	background: #F2F4F8;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+body{
+	font-family: 'SourceSansPro', sans-serif;
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+/* para el progress cuando se sube una imagen */
+
+.progress-wrapper{
+    position: relative;
+    margin:20px auto;
+    font-size: 40px;
+}
+
+.progress{
+	background-color: transparent!important;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 6em;
+    font-size:1em;
+    text-align: center;
+    color: #bbb;
+    font-weight: 100;
+}
+
+/* Splash screen */
+
+
+.splash {
+    background: #fff url(../img/splash.jpg) no-repeat center center fixed;
+  	background-size: cover;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    overflow: hidden;
+    perspective: 1000px;
+    position: fixed;
+    top: 0;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    visibility: hidden;
+    width: 100%;
+    z-index: 1000;
+}
+ 
+.splash-open.splash {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s;
+}
+
+
+/* touchscreen area para activarse cuando sea desde un smarthphone*/
+
+.areatouch {
+    position: fixed;
+    background: transparent;
+    width: 45%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    perspective: 1000px;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+/* access panel */
+
+.access {
+    position: fixed;
+    background: rgba(0,0,0,0.85);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    perspective: 1000px;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+}
+ 
+.access-open.access {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s;
+}
+ 
+.access .access-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: translate3d(0,0,150px);
+    transition: transform 0.5s;
+}
+ 
+ 
+.access-open.access .access-inner {
+    transform: translate3d(0,0,0);
+}
+ 
+.access .access-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    margin: 0 auto;
+    color:rgba(236, 236, 236, 0.76);
+    font-size: 18px;
+}
+
+.iconito {
+	margin-bottom: 20px;
+	font-weight: 300;
+	line-height: 1.4;
+}
+
+.iconito i{
+	font-size: 80px;
+}
+
+.btn-outline {
+    margin-top: 42px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    background-color: transparent;
+    font-weight: 300;
+    width: 80%;
+}
+.btn-outline:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline.last{
+    width: 250px;
+}
+
+.perspectiva{
+	z-index: 0;
+}
+
+
+/* arrastrar y soltar style */
+
+.drop-box {
+
+	background: transparent;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    width: 100%;   
+
+}
+
+.arrastra {
+	border: 5px solid #adff2f;
+	opacity: 1;
+	z-index: 12;
+}
+
+/* calses para el menu de login */
+
+.fondologin, .fondologin > body, .fondologin > body #page-wrapper, .fondologin > body #content-wrapper{
+	background: #0e4c8b!important;
+}
+
+.cabecera{
+	text-align: center;
+	font-size: 2em;
+	color: white;
+	margin: 1em;
+}
+
+.pie{
+	color: white;
+}
+
+/*reseteo de algunas caracteristicas de bootstrap*/
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.row > div {
+	margin-bottom: 15px;
+}
+.alert {
+	margin-bottom: 0;
+}
+
+.content{
+
+	padding: 1em;
+	width: 100%;
+	position: relative;
+	margin-bottom: 5em;
+	
+}
+
+/*Cuando vamos al login quita el header y el menu lateral*/
+.login{
+	display: none!important;
+}
+
+/*header */
+
+.logo{
+	font-family: 'Kaushan Script', cursive;
+	/*font-size: 20px;
+	line-height: 10px;
+	*/
+	font-size: 20px;
+	line-height: 10px;
+	margin-left: 0.5em;
+	width: 50%;
+	position: absolute;
+}
+
+.logoP{
+	font-family: 'Kaushan Script', cursive;
+	font-size: 20px;
+}
+
+
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-body > div > a:hover {
+	background-color: transparent;
+}
+
+
+.navbar-right .conection-menu a:hover{
+	background: transparent;
+}
+
+.navbar-right li a{
+	color: black;
+}
+
+
+.navbar-right li a:hover{
+	background: #273759;
+	color: white;
+}
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+	background-color: #273759;
+	color: white;
+}
+
+.row.header {
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	height: 50px;
+	left: 70px;
+	margin-bottom: 15px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index:9;
+}
+
+.row.header.active{
+	left: 250px
+}
+
+.row.header > div:last-child {
+	padding-right: 0;
+}
+.row.header .meta .page {
+	font-size: 17px;
+	padding-top: 11px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.row.header .user-menu{
+	margin-right: 0.9em;
+}
+
+
+/* Armado de la maqueta */
+
+#page-wrapper {
+	background: #F2F4F8;
+	height: 100%;
+	transition: all .3s ease 0s;
+}
+
+#page-wrapper.oculto {
+    padding-left: 0;
+}
+
+#sidebar-wrapper {
+	height: 100%;
+	margin-left: -150px;
+	position: fixed;top: 0;left: 150px;
+	transition: all .3s ease 0s;
+	width: 250px;
+	z-index: 11;
+}
+
+
+/*aqui es el header de la app */
+
+.row.header {
+    background: #fff;
+    height: 50px;
+    left: 250px;
+    margin-bottom: 15px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: all .3s ease 0s;
+    z-index:11;
+}
+
+/* Aqui es donde va el contenido de la app*/
+
+#content-wrapper {
+	background: #F2F4F8;
+	height: auto;
+	margin-left: 0;
+	margin-top: 50px;
+	padding-left: 0;
+	width: 100%;
+}
+
+/* Cambios cuando no hay usuario */
+
+#page-wrapper:not(.active) ul.sidebar .sidebar-title.separator {
+	background: #273759;
+}
+
+#page-wrapper.nouser{
+	padding-left:0;
+}
+
+
+/*menu de la barra lateral*/
+
+ul.sidebar .sidebar-main a, .sidebar-footer, ul.sidebar .sidebar-list a:hover {
+	background: #273759;
+}
+#sidebar-wrapper {
+	background: #30426a;
+}
+ul.sidebar .sidebar-title {
+	color: #627cb7;
+}
+
+ul.sidebar {
+	z-index:11;
+	position: absolute;
+	top: 0;
+	bottom: 45px;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-indent: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+ul.sidebar li a {
+    color: #fff;
+    display: block;
+    float: left;
+    text-decoration: none;
+    width: 250px;  
+}
+
+ul.sidebar .sidebar-main {
+    height: 55px;
+}
+
+ul.sidebar .sidebar-main a {
+	font-size: 18px;
+	line-height: 50px;
+}
+ul.sidebar .sidebar-main .menu-icon {
+	float: right;
+	font-size: 18px;
+	padding-right: 28px;
+	line-height: 50px;
+}
+
+
+
+ul.sidebar .sidebar-title {
+	font-size: 16px;
+	height: 35px;
+	line-height: 40px;
+	text-transform: uppercase;
+}
+
+ul.sidebar .sidebar-list {
+	height: 40px;
+}
+ul.sidebar .sidebar-list a {
+	text-indent: 25px;
+    font-size: 16px;
+    color: #b2bfdc;
+    line-height: 40px;
+	transition: color 0.5s;
+}
+
+ul.sidebar .sidebar-list a:hover {
+	color: #fff;
+    border-left: 3px solid #e99d1a;
+    text-indent: 22px;
+}
+
+ul.sidebar .sidebar-list .menu-icon {
+	float: right;
+	padding-right: 29px;
+	line-height: 40px;
+	width: 70px;
+}
+
+ul.sidebar .sidebar-list a:hover .menu-icon {
+	text-indent: 25px;
+}
+
+.sidebar-footer {
+	position: absolute;
+	height: 40px;
+	bottom: 0;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+.sidebar-footer div a {
+	color: #b2bfdc;
+	font-size: 12px;
+	line-height: 43px;
+}
+
+.sidebar-footer div a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+
+/* fondo negro  */
+
+.cn-overlay{
+	width:100%;
+	height:100%;
+	background-color: rgba(0,0,0,0.6);
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	opacity:0;
+	transition: all .3s ease;
+	z-index:12;
+	pointer-events:none;
+}
+
+.cn-overlay.on-overlay{
+	pointer-events:auto;
+	opacity:1;
+}
+
+#openmenu{
+	display: inline-block;
+	font-size: 20px;
+	padding: 0.5em;
+	position: absolute;
+}
+
+#openmenu a{
+	text-decoration: none;
+	color: black;
+}
+
+.form-box {
+	margin: -30px auto 0 auto;
+
+}
+
+
+/* header con los titulos pequeños*/
+
+.content-header {
+	background: #fbfbfb;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+	position: relative;
+	padding: 15px 15px 10px 20px;
+}
+.content-header > h1 {
+	margin: 0;
+	font-size: 24px;
+}
+.content-header > h1 > small {
+	font-size: 15px;
+	display: inline-block;
+	padding-left: 4px;
+	font-weight: 300;
+}
+.content-header > .breadcrumb {
+	float: right;
+	background: transparent;
+	margin-top: 0px;
+	margin-bottom: 0;
+	font-size: 12px;
+	padding: 7px 5px;
+	position: absolute;
+	top: 15px;
+	right: 10px;
+	border-radius: 2px;
+}
+.content-header > .breadcrumb > li > a {
+	color: #444;
+	text-decoration: none;
+}
+.content-header > .breadcrumb > li > a > .fa,
+.content-header > .breadcrumb > li > a > .glyphicon,
+.content-header > .breadcrumb > li > a > .ion {
+	margin-right: 5px;
+}
+.content-header > .breadcrumb > li + li:before {
+ 	content: '>\00a0';
+}
+
+
+.content-footer {
+	background: black;
+	bottom: 0;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+	color: white;
+	height: 70px;
+	left: 250px;
+	overflow-scrolling: touch;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 5px 5px;
+	position: fixed;
+	right: 0;
+	transition: all .3s ease 0s;
+	white-space: nowrap;
+	z-index:11;
+}
+
+.content-footer.tablet {
+	left: 70px;
+}
+
+.content-footer.oculto {
+	left: 0;
+}
+
+
+/*helper classes*/
+
+.relative{
+	position: relative;
+}
+
+.hidden{
+	overflow:hidden;
+	height: 77px;
+}
+
+
+
+/*Diseño para smartphone*/
+@media (max-width: 767px) { 
+
+	#page-wrapper {
+	    padding-left: 0;
+	}
+
+	.row.header{
+	    left: 0;
+	    z-index:11;
+	}
+
+	.row.header .user-menu{
+		margin-right: 0;
+	}
+
+	#sidebar-wrapper{
+
+		display: none;
+	}
+
+	.logo{
+		font-size: 1.1em;
+		line-height: 10px;
+		margin-left: 0;
+		padding: 0;
+		position: absolute;
+		right: 113px;
+		width: 50%;
+	}
+
+	/* clase para mostrar el menu*/
+	#sidebar-wrapper.show {
+		margin-left: 0;
+		left: 0;
+		z-index:13;
+		display: block!important;
+		animation:fadeInLeft 0.5s;
+	}
+
+
+	/*estilo para el login */
+
+	.form-box {
+		width: 100%;
+	}
+
+	.form-box .body, .form-box .footer {
+
+		background: transparent;
+
+	}
+
+	.bg-gray {
+
+		background-color: transparent!important;
+	}
+
+	.form-box .header {
+		background: transparent;
+		box-shadow: inset 0px -3px 0px rgba(224, 224, 224, 0.78);
+	}
+
+	.content-footer {
+		left: 0;
+	}
+
+	.btn-outline {
+	    margin-top: 5px;
+	}
+
+	.iconito i{
+		font-size: 40px;
+	}
+
+}
+
+/*Diseño para tabletas*/
+@media (min-width: 768px) and (max-width: 991px) {
+	
+	#page-wrapper {
+	    padding-left: 70px;
+	}
+
+	#page-wrapper #sidebar-wrapper {
+		margin-left: -150px;
+	    left: -30px;
+	}
+
+	.row.header{
+	    left: 70px;
+	}
+
+	#page-wrapper ul.sidebar {
+	    bottom: 0;
+	}
+
+	#page-wrapper ul.sidebar .sidebar-title {
+		display: none;
+	}
+
+	#page-wrapper ul.sidebar .sidebar-title.separator {
+		display: block;
+		height: 2px;
+		margin: 13px 0;
+	}
+
+	#page-wrapper ul.sidebar .sidebar-list a:hover span {
+		border-left: 3px solid #e99d1a;
+		text-indent: 22px;
+	}
+
+	#page-wrapper .sidebar-footer {
+	    display: none;
+	}
+
+	.row.header{
+	    left: 70px;
+	}
+
+	/*modo desktop cuando se activa el boton*/
+
+	#page-wrapper.tablet{
+	    padding-left: 250px;
+	}
+
+	.row.header.tablet{
+	    left: 250px;
+	}
+
+	#page-wrapper.tablet #sidebar-wrapper.tablet {
+		margin-left: 0;
+	    left: 0;
+	}
+
+	#page-wrapper.tablet .sidebar-footer {
+	    display: block;
+	}
+
+	#page-wrapper.tablet ul.sidebar .sidebar-title {
+		display: block;
+	}
+
+	#page-wrapper.tablet ul.sidebar {
+	    bottom: 45px;
+	}
+	
+	#page-wrapper.tablet ul.sidebar .sidebar-list a {
+		text-indent: 25px;
+	    line-height: 40px;
+
+	}
+
+	#page-wrapper.tablet ul.sidebar .sidebar-list a:hover {
+	    border-left: 3px solid #e99d1a;
+	    text-indent: 22px;
+	}
+
+	#page-wrapper.tablet ul.sidebar .sidebar-list a:hover span {
+		border-left: none;
+		text-indent: 25px;
+	}
+
+	.content-footer {
+		left: 70px;
+	}
+
+	.content-footer.tablet {
+		left: 250px;
+	}
+
+
+}
+
+@media (min-width: 992px){
+	
+	#page-wrapper {
+	    padding-left: 250px;
+	}
+
+	/*modo tablet cuando se activa el boton*/
+
+	#page-wrapper.tablet{
+	    padding-left: 70px;
+	}
+
+	#page-wrapper.tablet ul.sidebar {
+	    bottom: 0;
+	}
+
+	#page-wrapper.tablet ul.sidebar .sidebar-title {
+		display: none;
+	}
+
+	#page-wrapper.tablet ul.sidebar .sidebar-title.separator {
+		display: block;
+		height: 2px;
+		margin: 13px 0;
+	}
+
+	#page-wrapper.tablet ul.sidebar .sidebar-list a:hover span {
+		border-left: 3px solid #e99d1a;
+		text-indent: 22px;
+	}
+
+	#page-wrapper.tablet .sidebar-footer {
+	    display: none;
+	}
+
+	#page-wrapper.tablet #sidebar-wrapper {
+		margin-left: -150px;
+	    left: -30px;
+	}
+
+	.row.header.tablet{
+	    left: 70px;
+	}
+
+}
+
+
