@@ -71,7 +71,7 @@
 							field-required="true"
 							text-searching="Buscando Marcas"
 							text-no-results="No se encontraron marcas"
-							initial-value="{{datos.marca}}"
+							initial-value="datos.marca"
           					input-class="form-control"/>
 						</div>
 
@@ -139,33 +139,18 @@
 	            </div>
 	            <div class="row">
 					<div class="col-md-6 col-sm-6">
-							<input type="file" ng-file-select="altaImagenes($files)" >
-							Tambien arrastra tus documentos
+
+							<!-- <div class="drop-box"  ngf-drop accept="image/*" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-pattern="'image/*" ngf-change="upload($files, $file, $event)" flex> -->
+					          <button class="btn btn-primary" type="button" accept="image/*" ngf-select="altaImagenes($files)" ngf-change="altaImagenes($files, $file, $event)" multiple="multiple">Subir Imagenes</button><br>
+					          Arrastra tus archivos aqui
+					      <!-- </div> -->
 					</div>
 					<div class="col-md-6 col-sm-6">
-						
-						<div class="text-center animate-show" ng-show="cargando">
-							<h2>Subiendo {{ actual }} de {{ total }}</h2>
-							<div class="progress-wrapper">
-					            <div class="progress"  ng-style="{'font-size': ((radius + stroke)/(isSemi ? 3.5 : 3))+'px'}">{{ ((uploadCurrent/100)*100) | number:0 }}%</div>
-					            <div
-					                round-progress
-					                max="100"
-					                current="uploadCurrent"
-					                color="{{ currentColor }}"
-					                bgcolor="{{ bgColor }}"
-					                radius="{{ radius }}"
-					                semi="isSemi"
-					                stroke="{{ stroke }}"
-					                animation="{{ currentAnimation }}"></div>
-					        </div>
-								
-						</div>
 						
 						<div class="row">
 							<div class="col-md-4" ng-repeat="file in imagenes">
 								<button type="button" class="close" aria-label="Close" ng-click="eliminaImagen($index)"><span aria-hidden="true">&times;</span></button>
-								<img ng-src="{{ruta}}/{{file.image}}" alt="producto" class="img-thumbnail">
+								<img ngf-src="file" alt="producto" class="img-thumbnail">
 							</div>
 						</div>
 
